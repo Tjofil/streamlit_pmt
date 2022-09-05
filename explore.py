@@ -3,8 +3,6 @@ import streamlit as st
 import pandas as pd
 import requests
 import plotly.express as px
-import sklearn
-
 
 @st.cache
 def load_data():
