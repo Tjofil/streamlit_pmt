@@ -71,7 +71,7 @@ def display_predict_page():
     calc = st.button('Calculate the diabetes prediction')
     if calc:
         prediction = predict(features)
-        st.write(f'### Based on the model prediction you likely _{"" if prediction else "dont"}_ have diabetes')
+        st.write(f'### Based on the model prediction you likely {"" if prediction else "_dont_"} have diabetes')
 
 
         data = load_data()
@@ -80,7 +80,7 @@ def display_predict_page():
         features['Class'] = 2
         data = data.append(dict(features), ignore_index=True)
         data['Class'] = data['Class'].astype(str)
-        data = data.replace({"Class": {"1" : "Have diabetes", "0" : "Doesn't have diabetes", "2" : "You"}})
+        data = data.replace({"Class": {"1" : "Has diabetes", "0" : "Doesn't have diabetes", "2" : "You"}})
         fig = px.scatter(data, x="BMI", y="Age", color="Class", hover_data=list(features.keys()))
 
         st.plotly_chart(fig, use_container_width=True)
@@ -90,7 +90,7 @@ def display_predict_page():
     Category: 2 -> 25-29y old.
                     ...
     Category: 12 -> 75-79y old.
-    Category: 8 -> more than 79 y old.
+    Category: 13 -> more than 79 y old.
     """)
 
 
